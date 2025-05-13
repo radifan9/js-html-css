@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Inter font from Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Accordion Component</title>
+
+    <style>
+      /*
+      SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+      FONT SIZE SYSTEM (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+      MAIN COLOR: #087f5b
+      GREY COLOR: #343a40
+      */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: #343a40;
+        line-height: 1;
+      }
+
+      .accordion {
+        width: 700px;
+        margin: 100px auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .item {
+        /* offset-x <length> | offset-y <length> | blur-radius <length> | spread-radius <length> | <color> */
+        box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.1);
+        padding: 24px;
+
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        column-gap: 24px;
+        row-gap: 32px;
+        align-items: center;
+      }
+
+      .number,
+      .text {
+        font-size: 24px;
+        font-weight: 500;
+        /* color: #087f5b; */
+      }
+
+      .number {
+        color: #ced4da;
+      }
+
+      .icon {
+        width: 24px;
+        height: 24px;
+        stroke: #087f5b;
+      }
+
+      /* By default we make hidden-box actually hidden --> display: none */
+      .hidden-box {
+        grid-column: 2;
+        display: none;
+      }
+
+      .hidden-box p {
+        line-height: 1.6;
+        margin-bottom: 24px;
+      }
+
+      .hidden-box ul {
+        color: #868e96;
+        margin-left: 20px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      /* OPEN STATE - Only applied to opened items */
+      .open {
+        border-top: 4px solid #087f5b;
+      }
+
+      .open .hidden-box {
+        display: block;
+      }
+
+      .open .number,
+      .open .text {
+        color: #087f5b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="accordion">
+      <!-- For accordion item 01 -->
+      <div class="item">
+        <p class="number">01</p>
+        <p class="text">Where are these chairs assembled?</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+            blanditiis sequi tempore eaque ex perspiciatis beatae incidunt
+            eligendi, vitae commodi provident cupiditate, quae facilis similique
+            natus, facere enim voluptatem dicta.
+          </p>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure,
+              ea!
+            </li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- For accordion item 02 -->
+      <div class="item open">
+        <p class="number">02</p>
+        <p class="text">How long do I have to return my chair?</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+            blanditiis sequi tempore eaque ex perspiciatis beatae incidunt
+            eligendi, vitae commodi provident cupiditate, quae facilis similique
+            natus, facere enim voluptatem dicta.
+          </p>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure,
+              ea!
+            </li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae.
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- For accordion item 03 -->
+      <div class="item">
+        <p class="number">03</p>
+        <p class="text">Do you ship to countries outside the EU</p>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="icon"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m19.5 8.25-7.5 7.5-7.5-7.5"
+          />
+        </svg>
+        <div class="hidden-box">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos
+            blanditiis sequi tempore eaque ex perspiciatis beatae incidunt
+            eligendi, vitae commodi provident cupiditate, quae facilis similique
+            natus, facere enim voluptatem dicta.
+          </p>
+          <ul>
+            <li>
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure,
+              ea!
+            </li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit.</li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum.
+            </li>
+            <li>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Repudiandae.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      /* Adding JavaScript logic to 01-accordion */
+      "use strict";
+
+      // Select all elements with class 'item'
+      const items = document.querySelectorAll(".item");
+
+      // Add a click event listener to each one
+      items.forEach(function (item) {
+        item.addEventListener("click", function () {
+          // Toggle the 'open' class
+          item.classList.toggle("open");
+
+          // Optional: Close other items when one is opened
+          items.forEach(function (other) {
+            if (other !== item) {
+              // Jika other bukan item yang sekarang di klik, hilangkan class 'open'
+
+              other.classList.remove("open");
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
